@@ -73,12 +73,20 @@ class RandomArt(object):
         mapped_field = self.map_field()
         str_buff = StringIO.StringIO()
 
-        str_buff.write('+' + '-' * self.WIDTH + '+\n')
+        str_buff.write('+')
+        str_buff.write('-' * self.WIDTH)
+        str_buff.write('+\n')
 
         for l in mapped_field:
-            str_buff.write('|' + ''.join([c for c in l]) + '|\n')
+            str_buff.write('|')
+            for c in l:
+                str_buff.write(c)
+            str_buff.write('|\n')
 
-        str_buff.write('+' + '-' * self.WIDTH + '+\n')
+        str_buff.write('+')
+        str_buff.write('-' * self.WIDTH)
+        str_buff.write('+')
+
         full_string = str_buff.getvalue()
         str_buff.close()
 
